@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd">
+
+	<!-- Why we use JNDI? see >>> http://blog.csdn.net/lcore/article/details/8960942 -->
+
+	<!-- 
+		說明:resource-ref >>> 若指定為true,則jndi-name將自動帶入前綴 java:comp/env/
+		但實際測試在 
+			spring4.2.4、Tomcat 7、/WebContent/META-INF/context.xml 設置對應的文件
+		的情況下若為false似乎不會有影響??? 尚待驗證
+	-->
+	<jee:jndi-lookup id="jndiDataSource" jndi-name="jdbc/KBTest" resource-ref="true"/>
+	
+	
+	<!-- p:resourceRef="true" 如果沒有設定則會找不到指定的jndiName
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"
+		p:jndiName="jdbc/KBTest"
+		p:resourceRef="true"/>     
+	-->
+
+</beans>

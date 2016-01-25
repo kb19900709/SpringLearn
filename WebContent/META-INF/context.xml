@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+	<!-- DataSource -->
+	<!--name:DataSource的名稱-->  
+	<!-- auth="Container" 固定的寫法 --> 
+	<!--type:DataSource對應的java類型，一般設計為javax.sql.DataSource-->  
+	<!--username:DB userName-->  
+	<!--password:DB password-->  
+	<!--driverClassName:JDBC的driver package-->  
+	<!--url:指定driver的對應url-->  
+	<!--maxIdle:連接池處於空閒狀態的數據庫連接的最大數目，-1 表示無上限-->  
+	<!--maxWait:連接池中數據庫連接處於空閒狀態的最長時間（以毫秒為單位），-1 表示無上限-->  
+	<!--maxActive:連接池處於活動狀態的數據庫連接的最大數目，-1 表示無上限-->  
+    <Resource 
+		name="jdbc/KBTest" auth="Container" type="javax.sql.DataSource"
+		username="KB" password="xul4m4d93" driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@localhost:1521:XE"
+		maxIdle="3" maxWait="10000" maxActive="20"/>
+</Context>
