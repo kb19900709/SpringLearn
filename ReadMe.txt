@@ -1,3 +1,10 @@
+Highlights:
+
+1. web.xml 導入 spring、spring mvc
+2. 注入dataSource by JNDI 
+
+=============================================================================
+
 Library  Reference:
 
 1.	spring-core 4.2.4.RELEASE
@@ -5,6 +12,7 @@ Library  Reference:
 3.	spring-webmvc 4.2.4.RELEASE
 4.	spring-jdbc 4.2.4.RELEASE
 5.	ojdbc6
+6.	jstl-1.2
 
 =============================================================================
 

@@ -3,7 +3,7 @@
 <Context>
 	<!-- DataSource -->
 	<!--name:DataSource的名稱-->  
-	<!-- auth="Container" 固定的寫法 --> 
+	<!--auth="Container" 固定寫法 --> 
 	<!--type:DataSource對應的java類型，一般設計為javax.sql.DataSource-->  
 	<!--username:DB userName-->  
 	<!--password:DB password-->  

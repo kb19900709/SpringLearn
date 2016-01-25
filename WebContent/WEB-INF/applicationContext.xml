@@ -6,6 +6,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	
+	<!-- 載入其它已定義檔案 -->
+	<!-- 深入應用 see >>> http://blog.csdn.net/kkdelta/article/details/5507799 -->
 	<import resource="datasource.xml"/>	
 
 	<!-- 掃描 com 套件下，有被相關標註（Annotation）設定為元件的類別 -->

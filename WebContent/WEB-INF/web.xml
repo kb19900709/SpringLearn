@@ -18,6 +18,13 @@
   </listener>
   
   <!-- springMVC -->
+  <!-- 
+  	預設抓取 [servlet-name]-servlet.xml當作初始參數
+  	以這個範例來說，就是springMVC-servlet.xml
+  	
+  	url-pattern : / 
+  	表示此servlet接受所有的請求，包跨靜態資源(需做額外處裡)
+  -->
   <servlet>
   	<servlet-name>springMVC</servlet-name>
   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

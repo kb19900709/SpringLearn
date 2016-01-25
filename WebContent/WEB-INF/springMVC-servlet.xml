@@ -18,7 +18,8 @@
 	<mvc:annotation-driven />
 	
 	<!-- 靜態資源處理 -->
-	<mvc:resources location="/resources/**" mapping="/resources/"/>
+	<!-- 如果是mapping打頭的所有請求，統一去location設置的目錄查找 (參考index.jsp之寫法) -->
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/views/"
