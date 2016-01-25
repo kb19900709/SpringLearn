@@ -1,25 +1,7 @@
-Maven – POM Reference
+Library  Reference
 
-<dependencies>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-core</artifactId>
-		<version>4.2.4.RELEASE</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-context</artifactId>
-		<version>4.2.4.RELEASE</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-webmvc</artifactId>
-		<version>4.2.4.RELEASE</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-jdbc</artifactId>
-		<version>4.2.4.RELEASE</version>
-	</dependency>
-</dependencies>
-
+1.	spring-core 4.2.4.RELEASE
+2.	spring-context 4.2.4.RELEASE
+3.	spring-webmvc 4.2.4.RELEASE
+4.	spring-jdbc 4.2.4.RELEASE
+5.	ojdbc6
