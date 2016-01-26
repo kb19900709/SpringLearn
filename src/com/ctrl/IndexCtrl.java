@@ -2,26 +2,25 @@ package com.ctrl;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "/index")
 public class IndexCtrl {
 	
-	private static final String PRATICE_VIEW = "springPracticeMain";
+	private static final String MAIN_PAGE = "springLearnMain";
 	
 	//可攜帶額外參數的寫法
-//	@RequestMapping(value = "/forwardToPracticePage")
-//	public ModelAndView forwardToPracticePage(){
-//		ModelAndView mav = new ModelAndView(PRATICE_VIEW);
+//	@RequestMapping(value = "/mainPage")
+//	public ModelAndView forwardToMainPage(){
+//		ModelAndView mav = new ModelAndView(MAIN_PAGE);
 //		mav.addObject("KB", new Date());
 //		return mav;
 //	}
 	
 	//單純回傳邏輯名稱，將會被 InternalResourceViewResolver 解析成對應路徑(view)
 	//接著再由DispatcherServlet 派發
-	@RequestMapping(value = "/forwardToPracticePage")
-	public String forwardToPracticePage(){
-		return PRATICE_VIEW;
+	@RequestMapping(value = "/mainPage")
+	public String forwardToMainPage(){
+		return MAIN_PAGE;
 	}
 }

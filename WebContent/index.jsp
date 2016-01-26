@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Spring Learn</title>
+<title>KB Spring Learn</title>
 	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 	<link href="<c:url value="/resources/css/default.css"/>" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
@@ -13,7 +13,7 @@
 		var contextPath = '${pageContext.request.contextPath}';
 		$(document).ready(function(){
 			$('#enter').click(function(){
-				window.open(contextPath+'/index/forwardToPracticePage','_self');
+				window.open(contextPath+'/index/mainPage','_self');
 			});
 		});
 	</script>
@@ -23,9 +23,7 @@
 	<div align="center">
 		<img width="60%" height="60%" src='<c:url value="/resources/images/java-spring-tutorials.jpg"/>'>
 		<br><br>
-		<button id="enter">基本設置備忘錄 by KB</button>
-		<br>
-		<h6>一切資源分享皆來自網路，有侵權請來信告知 : o922431962@yahoo.com.tw</h6>
+		<button id="enter">enter</button>
 	</div>
 </body>
 </html>
