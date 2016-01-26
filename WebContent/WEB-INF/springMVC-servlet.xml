@@ -21,7 +21,15 @@
 	<!-- 如果是mapping打頭的所有請求，統一去location設置的目錄查找 (參考index.jsp之寫法) -->
 	<mvc:resources mapping="/resources/**" location="/resources/"/>
 
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+	<!-- 
+		常態性的java web (war)，view的解析配置 
+		p:prefix 前綴
+		p:suffix 後綴
+		只需要回傳指定邏輯名，DispatcherServlet 將會透過解析配置查找正確的view
+		Why use JstlView? see >>> http://docs.spring.io/spring-framework/docs/2.5.6/api/org/springframework/web/servlet/view/JstlView.html
+	-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		  p:viewClass="org.springframework.web.servlet.view.JstlView"
           p:prefix="/WEB-INF/views/"
           p:suffix=".jsp"/>
 

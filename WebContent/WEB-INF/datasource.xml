@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd">
 
-	<!-- Why we use JNDI? see >>> http://blog.csdn.net/lcore/article/details/8960942 -->
+	<!-- Why use JNDI? see >>> http://blog.csdn.net/lcore/article/details/8960942 -->
 
 	<!-- 
 		說明:resource-ref >>> 若指定為true,則jndi-name將自動帶入前綴 java:comp/env/
