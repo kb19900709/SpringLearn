@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/index")
 public class IndexCtrl {
 	
-	private static final String PRATICE_VIEW = "springPractice";
+	private static final String PRATICE_VIEW = "springPracticeMain";
 	
 	//可攜帶額外參數的寫法
 //	@RequestMapping(value = "/forwardToPracticePage")

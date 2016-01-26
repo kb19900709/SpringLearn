@@ -12,13 +12,14 @@ Tomcat v7.0 Server
 
 Library  Reference:
 
-1. spring-core 4.2.4.RELEASE
-2. spring-context 4.2.4.RELEASE
-3. spring-webmvc 4.2.4.RELEASE
-4. spring-jdbc 4.2.4.RELEASE
-5. ojdbc6
-6. jstl-1.2
-7. jquery-2.2.0.js
+1. jdk7
+2. spring-core 4.2.4.RELEASE
+3. spring-context 4.2.4.RELEASE
+4. spring-webmvc 4.2.4.RELEASE
+5. spring-jdbc 4.2.4.RELEASE
+6. ojdbc6
+7. jstl-1.2
+8. jquery-2.2.0.js
 
 =============================================================================
 

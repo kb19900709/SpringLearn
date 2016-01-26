@@ -5,22 +5,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Spring Learn by KB</title>
+<title>Spring Learn</title>
+	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
+	<link href="<c:url value="/resources/css/default.css"/>" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';
 		$(document).ready(function(){
-			$('#hyperLink').click(function(){
+			$('#enter').click(function(){
 				window.open(contextPath+'/index/forwardToPracticePage','_self');
 			});
 		});
 	</script>
 </head>
 <body>
+	<img src="<c:url value="/resources/images/main-bg.jpg"/>" width="100%" height="100%" id="full-screen-background-image" />
 	<div align="center">
 		<img width="60%" height="60%" src='<c:url value="/resources/images/java-spring-tutorials.jpg"/>'>
+		<br><br>
+		<button id="enter">基本設置備忘錄 by KB</button>
 		<br>
-		<a id="hyperLink" href="#" style="color:blue;">基本設置備忘錄 by KB</a>
+		<h6>一切資源分享皆來自網路，有侵權請來信告知 : o922431962@yahoo.com.tw</h6>
 	</div>
 </body>
 </html>
