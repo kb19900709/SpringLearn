@@ -5,6 +5,11 @@ Highlights:
 
 =============================================================================
 
+Eclipse 
+Oracle Database 11g Express Edition 
+Tomcat v7.0 Server 
+
+
 Library  Reference:
 
 1. spring-core 4.2.4.RELEASE
