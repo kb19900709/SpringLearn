@@ -4,10 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = "/index")
+@RequestMapping(value = "/forward")
 public class IndexCtrl {
 	
 	private static final String MAIN_PAGE = "springLearnMain";
+	private static final String PRACTICE_PAGE = "springPractice";
 	
 	//可攜帶額外參數的寫法
 //	@RequestMapping(value = "/mainPage")
@@ -22,5 +23,10 @@ public class IndexCtrl {
 	@RequestMapping(value = "/mainPage")
 	public String forwardToMainPage(){
 		return MAIN_PAGE;
+	}
+	
+	@RequestMapping(value = "/practicePage")
+	public String forwardToPracticePage(){
+		return PRACTICE_PAGE;
 	}
 }

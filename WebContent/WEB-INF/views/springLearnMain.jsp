@@ -8,7 +8,11 @@
 <title>KB Spring Learn</title>
 	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 	<link href="<c:url value="/resources/css/default.css"/>" rel="stylesheet" type="text/css" media="all" />
-	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script> 
+	<script type="text/javascript">
+		var contextPath = '${pageContext.request.contextPath}';
+	</script>
+	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/springLearnMain.js"/>"></script>  
 </head>
 <body>
 	<img src="<c:url value="/resources/images/main-bg.jpg"/>" width="100%" height="100%" id="full-screen-background-image" />
@@ -20,17 +24,16 @@
 				</div>
 				<div id="menu">
 					<ul>
-						<li class="active"><a href="#" accesskey="1" title="">Homepage</a></li>
-						<li><a href="#" accesskey="2" title="">Spring Practice</a></li>
-						<li><a href="#" accesskey="3" title="">Others</a></li>
-						<li><a href="#" accesskey="4" title="">About me</a></li>
-						<li><a href="#" accesskey="5" title="">Contact me</a></li>
+						<li class="active"><a href="#" accesskey="1" title="" class="menuHyperLink">Homepage</a></li>
+						<li><a href="#" accesskey="2" title="" class="menuHyperLink">Spring Practice</a></li>
+						<li><a href="#" accesskey="3" title="" class="menuHyperLink">Others</a></li>
+						<li><a href="#" accesskey="4" title="" class="menuHyperLink">About me</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div id="page" class="container">
-			<div id="content">
+		<div id="page" class="container" style="min-height: 500px;">
+			<div id="content" style="min-height: 400px;">
 				<div id="box1">
 					<h2 class="title"><a href="#">Welcome to KB Spring Learn</a></h2>
 					<p>這是<strong>Spring Learn</strong>，免費且公開的學習網站。</p>

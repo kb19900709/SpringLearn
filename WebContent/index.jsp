@@ -10,10 +10,9 @@
 	<link href="<c:url value="/resources/css/default.css"/>" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
 	<script type="text/javascript">
-		var contextPath = '${pageContext.request.contextPath}';
 		$(document).ready(function(){
 			$('#enter').click(function(){
-				window.open(contextPath+'/index/mainPage','_self');
+				window.open('${pageContext.request.contextPath}/forward/mainPage','_self');
 			});
 		});
 	</script>
