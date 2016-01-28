@@ -1,11 +1,15 @@
 package com.ctrl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "/forward")
-public class IndexCtrl {
+public class ForwardCtrl {
+	
+	private Logger logger = LoggerFactory.getLogger(ForwardCtrl.class);
 	
 	private static final String MAIN_PAGE = "springLearnMain";
 	private static final String PRACTICE_PAGE = "springPractice";
@@ -22,11 +26,13 @@ public class IndexCtrl {
 	//接著再由DispatcherServlet 派發
 	@RequestMapping(value = "/mainPage")
 	public String forwardToMainPage(){
+		logger.info("ForwardCtrl.forwardToMainPage");
 		return MAIN_PAGE;
 	}
 	
 	@RequestMapping(value = "/practicePage")
 	public String forwardToPracticePage(){
+		logger.info("ForwardCtrl.forwardToPracticePage");
 		return PRACTICE_PAGE;
 	}
 }

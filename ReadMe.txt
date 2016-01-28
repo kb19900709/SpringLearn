@@ -2,6 +2,7 @@ Highlights:
 
 1. web.xml 導入 spring、spring mvc
 2. 注入dataSource by JNDI 
+3. 系統日誌配置(log)
 
 =============================================================================
 
@@ -12,14 +13,19 @@ Tomcat v7.0 Server
 
 Library  Reference:
 
-1. jdk7
-2. spring-core 4.2.4.RELEASE
-3. spring-context 4.2.4.RELEASE
-4. spring-webmvc 4.2.4.RELEASE
-5. spring-jdbc 4.2.4.RELEASE
-6. ojdbc6
-7. jstl-1.2
-8. jquery-2.2.0.js
+jdk7
+spring-core 4.2.4.RELEASE
+spring-context 4.2.4.RELEASE
+spring-webmvc 4.2.4.RELEASE
+spring-jdbc 4.2.4.RELEASE
+ojdbc6
+mybatis-3.3.0
+mybatis-spring-1.2.3
+log4j-1.2.17
+slf4j-api-1.7.14
+slf4j-log4j12-1.7.14
+jquery-2.2.0.js
+jstl-1.2
 
 =============================================================================
 

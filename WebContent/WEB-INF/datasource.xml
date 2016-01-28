@@ -14,7 +14,7 @@
 			spring4.2.4、Tomcat 7、/WebContent/META-INF/context.xml 設置對應的文件
 		的情況下若為false似乎不會有影響??? 尚待驗證
 	-->
-	<jee:jndi-lookup id="jndiDataSource" jndi-name="jdbc/KBTest" resource-ref="true"/>
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/KBTest" resource-ref="true"/>
 	
 	
 	<!-- p:resourceRef="true" 如果沒有設定則會找不到指定的jndiName
