@@ -8,11 +8,10 @@
 <title>KB Spring Learn</title>
 	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 	<link href="<c:url value="/resources/css/default.css"/>" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';
 	</script>
-	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/springLearnMain.js"/>"></script>  
 </head>
 <body>
 	<img src="<c:url value="/resources/images/main-bg.jpg"/>" width="100%" height="100%" id="full-screen-background-image" />
@@ -79,5 +78,7 @@
 			<p>&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>
 		</div>
 	</div>
+	
+	<script type="text/javascript" src="<c:url value="/resources/js/springLearnMain.js"/>"></script>  
 </body>
 </html>

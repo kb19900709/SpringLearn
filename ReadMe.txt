@@ -1,8 +1,9 @@
 Highlights:
 
-1. web.xml 導入 spring、spring mvc
-2. 注入dataSource by JNDI 
-3. 系統日誌配置(log)
+1. web.xml 配置 spring、spring mvc
+2. 配置連線資訊(DataSource in JNDI)
+3. 配置事務管理(TransactionManager)
+4. 配置系統日誌(Log)
 
 =============================================================================
 

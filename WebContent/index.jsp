@@ -9,13 +9,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 	<link href="<c:url value="/resources/css/default.css"/>" rel="stylesheet" type="text/css" media="all" />
 	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#enter').click(function(){
-				window.open('${pageContext.request.contextPath}/forward/mainPage','_self');
-			});
-		});
-	</script>
 </head>
 <body>
 	<img src="<c:url value="/resources/images/main-bg.jpg"/>" width="100%" height="100%" id="full-screen-background-image" />
@@ -24,5 +17,13 @@
 		<br><br>
 		<button id="enter">enter</button>
 	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#enter').click(function(){
+				window.open('${pageContext.request.contextPath}/forward/mainPage','_self');
+			});
+		});
+	</script>
 </body>
 </html>
