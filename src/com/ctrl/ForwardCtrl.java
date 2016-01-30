@@ -21,9 +21,6 @@ public class ForwardCtrl {
 	private static final String MAIN_PAGE = "springLearnMain";
 	private static final String PRACTICE_PAGE = "springPractice";
 	
-	@Value("${kb.project.name}")
-	private String projectName;
-	
 	@Autowired
 	private DataSource ds;
 	
@@ -46,7 +43,6 @@ public class ForwardCtrl {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		logger.info("test property-placeholder >>> projectName:"+projectName);
 		logger.info("ForwardCtrl.forwardToMainPage");
 		return MAIN_PAGE;
 	}
