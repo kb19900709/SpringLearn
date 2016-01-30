@@ -40,6 +40,21 @@
 	-->
 	<!-- DBCP end -->
 	
+
+	<!-- myBatis begin -->
+	<!-- 掃描指定目錄，省去myBatis應配置的映射文件
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+    	p:dataSource-ref="dataSource"
+    	p:mapperLocations="classpath:com/myBatis/mapping/*.xml"
+    /> -->   
+
+	<!-- 掃描指定目錄，目錄下的映射介面將各自建立動態代理類別
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+    	p:basePackage="com.myBatis.dao"
+    	p:sqlSessionFactoryBeanName="sqlSessionFactory"
+    /> --> 
+    <!-- myBatis end -->
+    
     
 	<!-- transaction control begin -->
 	<!-- DataSourceTransactionManager for JDBC/MyBatis 事務管理 -->
@@ -55,5 +70,5 @@
 	-->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- transaction control end -->
-
+	
 </beans>

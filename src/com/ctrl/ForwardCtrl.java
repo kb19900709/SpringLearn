@@ -21,9 +21,6 @@ public class ForwardCtrl {
 	private static final String MAIN_PAGE = "springLearnMain";
 	private static final String PRACTICE_PAGE = "springPractice";
 	
-	@Autowired
-	private DataSource ds;
-	
 	//可攜帶額外參數的寫法
 //	@RequestMapping(value = "/mainPage")
 //	public ModelAndView forwardToMainPage(){
@@ -36,13 +33,6 @@ public class ForwardCtrl {
 	//接著再由DispatcherServlet 派發
 	@RequestMapping(value = "/mainPage")
 	public String forwardToMainPage(){
-		try {
-			Connection conn = ds.getConnection();
-			logger.info("test conn >>> "+conn);
-			conn.close();			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 		logger.info("ForwardCtrl.forwardToMainPage");
 		return MAIN_PAGE;
 	}
