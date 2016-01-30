@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myBatis.dao.MenuDetailMapper">
+  <resultMap id="BaseResultMap" type="com.myBatis.model.MenuDetail">
+    <id column="MENU_DETAIL_INDEX" jdbcType="DECIMAL" property="menuDetailIndex" />
+    <result column="MENU_DETAIL_NAME" jdbcType="VARCHAR" property="menuDetailName" />
+    <result column="MENU_DETAIL_ORDER" jdbcType="DECIMAL" property="menuDetailOrder" />
+    <result column="MENU_DETAIL_DESC" jdbcType="VARCHAR" property="menuDetailDesc" />
+    <result column="MENU_FUNCTIONG_PAGE" jdbcType="VARCHAR" property="menuFunctiongPage" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from MENU_DETAIL
+    where MENU_DETAIL_INDEX = #{menuDetailIndex,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.myBatis.model.MenuDetail">
+  	<selectKey resultType="java.math.BigDecimal" keyProperty="menuDetailIndex" order="BEFORE" >
+      SELECT MENU_DETAIL_SEQ.NEXTVAL FROM DUAL
+    </selectKey>
+    insert into MENU_DETAIL (MENU_DETAIL_INDEX, MENU_DETAIL_NAME, 
+      MENU_DETAIL_ORDER, MENU_DETAIL_DESC, MENU_FUNCTIONG_PAGE
+      )
+    values (#{menuDetailIndex,jdbcType=DECIMAL}, #{menuDetailName,jdbcType=VARCHAR}, 
+      #{menuDetailOrder,jdbcType=DECIMAL}, #{menuDetailDesc,jdbcType=VARCHAR}, #{menuFunctiongPage,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.myBatis.model.MenuDetail">
+    update MENU_DETAIL
+    set MENU_DETAIL_NAME = #{menuDetailName,jdbcType=VARCHAR},
+      MENU_DETAIL_ORDER = #{menuDetailOrder,jdbcType=DECIMAL},
+      MENU_DETAIL_DESC = #{menuDetailDesc,jdbcType=VARCHAR},
+      MENU_FUNCTIONG_PAGE = #{menuFunctiongPage,jdbcType=VARCHAR}
+    where MENU_DETAIL_INDEX = #{menuDetailIndex,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select MENU_DETAIL_INDEX, MENU_DETAIL_NAME, MENU_DETAIL_ORDER, MENU_DETAIL_DESC, 
+    MENU_FUNCTIONG_PAGE
+    from MENU_DETAIL
+    where MENU_DETAIL_INDEX = #{menuDetailIndex,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MENU_DETAIL_INDEX, MENU_DETAIL_NAME, MENU_DETAIL_ORDER, MENU_DETAIL_DESC, 
+    MENU_FUNCTIONG_PAGE
+    from MENU_DETAIL
+  </select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myBatis.dao.MenuMainMapper">
+  <resultMap id="BaseResultMap" type="com.myBatis.model.MenuMain">
+    <id column="MENU_INDEX" jdbcType="DECIMAL" property="menuIndex" />
+    <result column="MENU_NAME" jdbcType="VARCHAR" property="menuName" />
+    <result column="MENU_ORDER" jdbcType="DECIMAL" property="menuOrder" />
+    <result column="MENU_WAITING_PAGE" jdbcType="VARCHAR" property="menuWaitingPage" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from MENU_MAIN
+    where MENU_INDEX = #{menuIndex,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.myBatis.model.MenuMain">
+  	<selectKey resultType="java.math.BigDecimal" keyProperty="menuIndex" order="BEFORE" >
+      SELECT MENU_MAIN_SEQ.NEXTVAL FROM DUAL
+    </selectKey>
+    insert into MENU_MAIN (MENU_INDEX, MENU_NAME, MENU_ORDER, 
+      MENU_WAITING_PAGE)
+    values (#{menuIndex,jdbcType=DECIMAL}, #{menuName,jdbcType=VARCHAR}, #{menuOrder,jdbcType=DECIMAL}, 
+      #{menuWaitingPage,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.myBatis.model.MenuMain">
+    update MENU_MAIN
+    set MENU_NAME = #{menuName,jdbcType=VARCHAR},
+      MENU_ORDER = #{menuOrder,jdbcType=DECIMAL},
+      MENU_WAITING_PAGE = #{menuWaitingPage,jdbcType=VARCHAR}
+    where MENU_INDEX = #{menuIndex,jdbcType=DECIMAL}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select MENU_INDEX, MENU_NAME, MENU_ORDER, MENU_WAITING_PAGE
+    from MENU_MAIN
+    where MENU_INDEX = #{menuIndex,jdbcType=DECIMAL}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select MENU_INDEX, MENU_NAME, MENU_ORDER, MENU_WAITING_PAGE
+    from MENU_MAIN
+  </select>
+</mapper>
