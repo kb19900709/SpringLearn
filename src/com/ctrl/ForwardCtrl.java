@@ -1,7 +1,14 @@
 package com.ctrl;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +20,12 @@ public class ForwardCtrl {
 	
 	private static final String MAIN_PAGE = "springLearnMain";
 	private static final String PRACTICE_PAGE = "springPractice";
+	
+	@Value("${kb.project.name}")
+	private String projectName;
+	
+	@Autowired
+	private DataSource ds;
 	
 	//可攜帶額外參數的寫法
 //	@RequestMapping(value = "/mainPage")
@@ -26,6 +39,14 @@ public class ForwardCtrl {
 	//接著再由DispatcherServlet 派發
 	@RequestMapping(value = "/mainPage")
 	public String forwardToMainPage(){
+		try {
+			Connection conn = ds.getConnection();
+			logger.info("test conn >>> "+conn);
+			conn.close();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		logger.info("test property-placeholder >>> projectName:"+projectName);
 		logger.info("ForwardCtrl.forwardToMainPage");
 		return MAIN_PAGE;
 	}

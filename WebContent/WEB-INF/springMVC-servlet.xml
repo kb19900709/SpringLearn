@@ -14,12 +14,15 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
+	
 	<!-- 有關於接受、處理請求的元件，也會使用標註來設定相關訊息。 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven/>
+	
 	
 	<!-- 靜態資源處理 -->
 	<!-- 如果是mapping打頭的所有請求，統一去location設置的目錄查找 (參考index.jsp之寫法) -->
 	<mvc:resources mapping="/resources/**" location="/resources/"/>
+
 
 	<!-- 
 		常態性的java web (war)，view的解析配置 
@@ -31,6 +34,7 @@
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		  p:viewClass="org.springframework.web.servlet.view.JstlView"
           p:prefix="/WEB-INF/views/"
-          p:suffix=".jsp"/>
+          p:suffix=".jsp"
+    />
 
 </beans>

@@ -6,13 +6,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	
-	<!-- 載入其它已定義檔案 -->
+	<!-- 載入property並且開啟 ${...} loader，在spring管理的bean下 @Value("${...}") 將會自動注入設定的值 -->
+	<!-- 寫法1 -->
+	<context:property-placeholder location="classpath:Config.properties"/>
+	<!-- 寫法2
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		p:location="classpath:Config.properties"
+	/>
+	-->
+
+
+	<!-- 載入其它已定義的spring相關xml檔案 -->
 	<!-- 深入應用 see >>> http://blog.csdn.net/kkdelta/article/details/5507799 -->
 	<import resource="datasource.xml"/>	
+
 
 	<!-- 掃描 com 套件下，有被相關標註（Annotation）設定為元件的類別 -->
 	<context:component-scan base-package="com">
 		<!-- 排除指定型態還有類別的掃描方式 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
+	
 </beans>

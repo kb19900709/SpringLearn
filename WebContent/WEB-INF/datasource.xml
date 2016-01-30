@@ -7,30 +7,53 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
-
+		
+	<!-- JNDI begin -->
 	<!-- Why use JNDI? see >>> http://blog.csdn.net/lcore/article/details/8960942 -->
-
 	<!-- 
 		說明:resource-ref >>> 若指定為true,則jndi-name將自動帶入前綴 java:comp/env/
 		但實際測試在 
 			spring4.2.4、Tomcat 7、/WebContent/META-INF/context.xml 設置對應的文件
 		的情況下若為false似乎不會有影響??? 尚待驗證
 	-->
-	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/KBTest" resource-ref="true"/>
-	
+	<jee:jndi-lookup id="dataSource" jndi-name="${kb.jndi.jndiName}" resource-ref="true"/>
 	
 	<!-- p:resourceRef="true" 如果沒有設定則會找不到指定的jndiName
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"
-		p:jndiName="jdbc/KBTest"
-		p:resourceRef="true"/>     
-	-->
+		p:jndiName="${kb.jndi.jndiName}"
+		p:resourceRef="true"/> 
+	 -->
+	<!-- JNDI end -->
 	
-	<!-- for JDBC/MyBatis 事務管理 -->
+
+	<!-- DBCP begin -->
+	<!-- 假設在pure JAVA 的專案，沒有AP的連線池設定可以吃，可以考慮使用 apache DBCP 
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		p:driverClassName="${kb.jdbc.driverClassName}"
+		p:url="${kb.jdbc.url}"
+		p:username="${kb.jdbc.username}"
+		p:password="${kb.jdbc.password}"
+		p:maxActive="${kb.jdbc.maxActive}"
+		p:maxIdle="${kb.jdbc.maxIdle}"
+		p:maxWait="${kb.jdbc.maxWait}"
+	/>
+	-->
+	<!-- DBCP end -->
+	
+    
+	<!-- transaction control begin -->
+	<!-- DataSourceTransactionManager for JDBC/MyBatis 事務管理 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
 		p:dataSource-ref="dataSource"
 	/>
 	
-	<!-- enable 標註對象的事務管理 -->
+	<!-- 
+		transaction control ,see >>> http://www.cnblogs.com/xusir/p/3650522.html
+		(default rolling back on runtime exceptions)
+		自動查找被spring管理的bean當中有@Transactional標註的bean 並且 enable 該標註對象的事務管理 
+		transaction-manager="transactionManager" 為預設指定的bean ID
+	-->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- transaction control end -->
 
 </beans>
