@@ -1,16 +1,14 @@
 package com.ctrl;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.service.MenuService;
 
 @Controller
 @RequestMapping(value = "/forward")
@@ -18,28 +16,22 @@ public class ForwardCtrl {
 	
 	private Logger logger = LoggerFactory.getLogger(ForwardCtrl.class);
 	
-	private static final String MAIN_PAGE = "springLearnMain";
-	private static final String PRACTICE_PAGE = "springPractice";
-	
-	//可攜帶額外參數的寫法
-//	@RequestMapping(value = "/mainPage")
-//	public ModelAndView forwardToMainPage(){
-//		ModelAndView mav = new ModelAndView(MAIN_PAGE);
-//		mav.addObject("KB", new Date());
-//		return mav;
-//	}
-	
+	@Autowired
+	private MenuService menuSrv;
+
 	//單純回傳邏輯名稱，將會被 InternalResourceViewResolver 解析成對應路徑(view)
 	//接著再由DispatcherServlet 派發
-	@RequestMapping(value = "/mainPage")
-	public String forwardToMainPage(){
-		logger.info("ForwardCtrl.forwardToMainPage");
-		return MAIN_PAGE;
+	@RequestMapping(value = "/dispatcher")
+	public String dispatcher(@RequestParam("pageName") String pageName){
+		logger.info("ForwardCtrl.dispatcher >>> pageName :"+pageName);
+		return pageName;
 	}
-	
-	@RequestMapping(value = "/practicePage")
-	public String forwardToPracticePage(){
-		logger.info("ForwardCtrl.forwardToPracticePage");
-		return PRACTICE_PAGE;
-	}
+
+	//可攜帶額外參數的寫法
+//	@RequestMapping(value = "/dispatcher")
+//	public ModelAndView dispatcher(@RequestParam("pageName") String pageName){
+//		logger.info("ForwardCtrl.dispatcher >>> pageName :"+pageName);
+//		ModelAndView mav = new ModelAndView(pageName);
+//		return mav;
+//	}
 }

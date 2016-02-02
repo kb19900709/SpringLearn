@@ -1,10 +1,11 @@
 Highlights:
 
 1. web.xml 配置 spring、spring mvc
-2. 配置連線資訊(JNDI or DBCP)
-3. 配置myBatis
-4. 配置事務管理(TransactionManager)
-5. 配置系統日誌(Log)
+2. 配置 property loader
+3. 配置連線資訊(JNDI or DBCP)
+4. 配置 myBatis
+5. 配置事務管理(TransactionManager)
+6. 配置系統日誌(Log)
 
 
 =============================================================================
@@ -12,11 +13,11 @@ Highlights:
 Eclipse 
 Oracle Database 11g Express Edition 
 Tomcat v7.0 Server 
+jdk7
 
 
 Dependency  Reference:
 
-jdk7
 spring-core 4.2.4.RELEASE
 spring-context 4.2.4.RELEASE
 spring-webmvc 4.2.4.RELEASE

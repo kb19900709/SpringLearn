@@ -15,13 +15,19 @@
 	<div align="center">
 		<img width="60%" height="60%" src='<c:url value="/resources/images/java-spring-tutorials.jpg"/>'>
 		<br><br>
-		<button id="enter">enter</button>
+		<div align="center">
+			<input type="radio" name="type" value="springLearnMain" checked="checked">guest
+			<input type="radio" name="type" value="adminPage">admin
+		</div>
+		<br>
+		<img id="enter" style="cursor: pointer; " src='<c:url value="/resources/images/enter.jpg"/>'>
 	</div>
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#enter').click(function(){
-				window.open('${pageContext.request.contextPath}/forward/mainPage','_self');
+				var pageName = $('input[name=type]:checked').val();
+				window.open('${pageContext.request.contextPath}/forward/dispatcher?pageName='+pageName,'_self');
 			});
 		});
 	</script>

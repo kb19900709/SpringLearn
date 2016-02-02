@@ -5,9 +5,11 @@ import java.math.BigDecimal;
 public class MenuDetail {
     private BigDecimal menuDetailIndex;
 
+    private BigDecimal menuIndex;
+
     private String menuDetailName;
 
-    private Short menuDetailOrder;
+    private Integer menuDetailOrder;
 
     private String menuDetailDesc;
 
@@ -21,6 +23,14 @@ public class MenuDetail {
         this.menuDetailIndex = menuDetailIndex;
     }
 
+    public BigDecimal getMenuIndex() {
+        return menuIndex;
+    }
+
+    public void setMenuIndex(BigDecimal menuIndex) {
+        this.menuIndex = menuIndex;
+    }
+
     public String getMenuDetailName() {
         return menuDetailName;
     }
@@ -29,11 +39,11 @@ public class MenuDetail {
         this.menuDetailName = menuDetailName == null ? null : menuDetailName.trim();
     }
 
-    public Short getMenuDetailOrder() {
+    public Integer getMenuDetailOrder() {
         return menuDetailOrder;
     }
 
-    public void setMenuDetailOrder(Short menuDetailOrder) {
+    public void setMenuDetailOrder(Integer menuDetailOrder) {
         this.menuDetailOrder = menuDetailOrder;
     }
 

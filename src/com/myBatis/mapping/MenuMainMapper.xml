@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.myBatis.model.MenuMain">
     <id column="MENU_INDEX" jdbcType="DECIMAL" property="menuIndex" />
     <result column="MENU_NAME" jdbcType="VARCHAR" property="menuName" />
-    <result column="MENU_ORDER" jdbcType="DECIMAL" property="menuOrder" />
+    <result column="MENU_ORDER" jdbcType="INTEGER" property="menuOrder" />
     <result column="MENU_WAITING_PAGE" jdbcType="VARCHAR" property="menuWaitingPage" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
@@ -17,13 +17,13 @@
     </selectKey>
     insert into MENU_MAIN (MENU_INDEX, MENU_NAME, MENU_ORDER, 
       MENU_WAITING_PAGE)
-    values (#{menuIndex,jdbcType=DECIMAL}, #{menuName,jdbcType=VARCHAR}, #{menuOrder,jdbcType=DECIMAL}, 
+    values (#{menuIndex,jdbcType=DECIMAL}, #{menuName,jdbcType=VARCHAR}, #{menuOrder,jdbcType=INTEGER}, 
       #{menuWaitingPage,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.myBatis.model.MenuMain">
     update MENU_MAIN
     set MENU_NAME = #{menuName,jdbcType=VARCHAR},
-      MENU_ORDER = #{menuOrder,jdbcType=DECIMAL},
+      MENU_ORDER = #{menuOrder,jdbcType=INTEGER},
       MENU_WAITING_PAGE = #{menuWaitingPage,jdbcType=VARCHAR}
     where MENU_INDEX = #{menuIndex,jdbcType=DECIMAL}
   </update>

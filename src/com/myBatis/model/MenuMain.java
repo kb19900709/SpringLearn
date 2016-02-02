@@ -7,7 +7,7 @@ public class MenuMain {
 
     private String menuName;
 
-    private Short menuOrder;
+    private Integer menuOrder;
 
     private String menuWaitingPage;
 
@@ -27,11 +27,11 @@ public class MenuMain {
         this.menuName = menuName == null ? null : menuName.trim();
     }
 
-    public Short getMenuOrder() {
+    public Integer getMenuOrder() {
         return menuOrder;
     }
 
-    public void setMenuOrder(Short menuOrder) {
+    public void setMenuOrder(Integer menuOrder) {
         this.menuOrder = menuOrder;
     }
 
