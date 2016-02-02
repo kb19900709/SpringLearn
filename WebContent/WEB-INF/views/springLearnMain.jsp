@@ -21,14 +21,7 @@
 				<div id="logo">
 					<img src="<c:url value="/resources/images/springLogo.jpg"/>" height="100px">
 				</div>
-				<div id="menu">
-					<ul>
-						<li class="active"><a href="#" accesskey="1" title="" class="menuHyperLink">Homepage</a></li>
-						<li><a href="#" accesskey="2" title="" class="menuHyperLink">Spring Practice</a></li>
-						<li><a href="#" accesskey="3" title="" class="menuHyperLink">Others</a></li>
-						<li><a href="#" accesskey="4" title="" class="menuHyperLink">About me</a></li>
-					</ul>
-				</div>
+				<div id="menu"></div>
 			</div>
 		</div>
 		<div id="page" class="container" style="min-height: 500px;">

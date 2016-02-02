@@ -16,7 +16,12 @@
 	
 	
 	<!-- 有關於接受、處理請求的元件，也會使用標註來設定相關訊息。 -->
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+	        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+	        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+	    </mvc:message-converters>
+	</mvc:annotation-driven>
 	
 	
 	<!-- 靜態資源處理 -->

@@ -35,5 +35,6 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select MENU_INDEX, MENU_NAME, MENU_ORDER, MENU_WAITING_PAGE
     from MENU_MAIN
+    order by MENU_ORDER asc
   </select>
 </mapper>

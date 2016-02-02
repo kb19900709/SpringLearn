@@ -44,4 +44,11 @@
     MENU_FUNCTIONG_PAGE
     from MENU_DETAIL
   </select>
+  <select id="selectByMenuIndex" resultMap="BaseResultMap" parameterType="map">
+  	select MENU_DETAIL_INDEX, MENU_INDEX, MENU_DETAIL_NAME, MENU_DETAIL_ORDER, MENU_DETAIL_DESC, 
+    MENU_FUNCTIONG_PAGE
+    from MENU_DETAIL
+    where MENU_INDEX = #{menuIndex}
+    order by MENU_DETAIL_ORDER asc
+  </select>
 </mapper>

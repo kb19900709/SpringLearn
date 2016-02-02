@@ -1,6 +1,7 @@
 package com.myBatis.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class MenuMain {
     private BigDecimal menuIndex;
@@ -10,6 +11,8 @@ public class MenuMain {
     private Integer menuOrder;
 
     private String menuWaitingPage;
+    
+    private List<MenuDetail> menuDetailList;
 
     public BigDecimal getMenuIndex() {
         return menuIndex;
@@ -42,4 +45,12 @@ public class MenuMain {
     public void setMenuWaitingPage(String menuWaitingPage) {
         this.menuWaitingPage = menuWaitingPage == null ? null : menuWaitingPage.trim();
     }
+
+	public List<MenuDetail> getMenuDetailList() {
+		return menuDetailList;
+	}
+
+	public void setMenuDetailList(List<MenuDetail> menuDetailList) {
+		this.menuDetailList = menuDetailList;
+	}
 }
