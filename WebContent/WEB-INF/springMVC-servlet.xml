@@ -15,15 +15,12 @@
 	</context:component-scan>
 	
 	
-	<!-- 有關於接受、處理請求的元件，也會使用標註來設定相關訊息。 -->
-	<mvc:annotation-driven>
-		<!-- 理論上應設置，但實際回傳結果是 application/json;charset=UTF-8
-		<mvc:message-converters>
-	        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-	        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-	    </mvc:message-converters>
-	    -->
-	</mvc:annotation-driven>
+	<!-- 
+		有關於接受、處理請求的元件，也會使用標註來設定相關訊息。 
+		將自動 enable MappingJackson2HttpMessageConverter(JSON 傳值處理) 
+	-->
+	<!-- detail see >>> http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#mvc-config -->
+	<mvc:annotation-driven/>
 	
 	
 	<!-- 靜態資源處理 -->
