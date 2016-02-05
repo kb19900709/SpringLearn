@@ -16,9 +16,9 @@ import com.service.MenuService;
 
 @Controller
 @RequestMapping(value = {"/forward","/home"})
-public class HomePageCtrl {
+public class SpringLearnMainCtrl {
 	
-	private Logger logger = LoggerFactory.getLogger(HomePageCtrl.class);
+	private Logger logger = LoggerFactory.getLogger(SpringLearnMainCtrl.class);
 	
 	@Autowired
 	private MenuService menuService;
@@ -27,7 +27,7 @@ public class HomePageCtrl {
 	//接著再由DispatcherServlet 派發
 	@RequestMapping(value = "/dispatcher")
 	public String dispatcher(@RequestParam("pageName") String pageName){
-		logger.info("ForwardCtrl.dispatcher >>> pageName :"+pageName);
+		logger.info("ForwardCtrl.dispatcher >>> pageName :"+pageName+".jsp");
 		return pageName;
 	}
 	
