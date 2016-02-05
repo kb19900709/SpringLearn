@@ -19,4 +19,5 @@ public interface MenuDetailMapper {
     int updateByPrimaryKey(MenuDetail record);
     
     List<MenuDetail> selectByMenuIndex(@Param("menuIndex") BigDecimal menuIndex);
+    
 }

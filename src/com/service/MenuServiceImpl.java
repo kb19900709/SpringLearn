@@ -1,6 +1,7 @@
 package com.service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -68,6 +69,7 @@ public class MenuServiceImpl implements MenuService{
 	    menuDetail.setMenuDetailDesc(menuDetailDesc);
 	    menuDetail.setMenuFunctiongPage(menuFunctiongPage);
 	    menuDetail.setMenuDetailOrder(menuDetailOrder);
+	    menuDetail.setCreateDate(new Date());
 	    menuDetailMapper.insert(menuDetail);
 		return true;
 	}

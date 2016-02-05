@@ -47,10 +47,10 @@
 				</div>
 				-->
 			</div>
-			<!-- 
-			<div id="sidebar">
-				<h2>Fusce ultrices</h2>
-				<ul class="style3">
+			<div id="sidebar" style="min-height: 400px;">
+				<h2>Function List</h2>
+				<ul id="functionList" class="style3">
+					<!-- 
 					<li class="first">
 						<p class="date">01-14-2013</p>
 						<p><a href="#">Vestibulum laoreet lorem sed amet condimentum eget ultrices et mago porttitor nequese blandit.</a></p>
@@ -63,9 +63,9 @@
 						<p class="date">01-07-2013</p>
 						<p><a href="#">Vestibulum laoreet lorem sed amet condimentum eget ultrices et mago porttitor nequese blandit.</a></p>
 					</li>
+					 -->
 				</ul>
 			</div>
-			 -->
 		</div>
 		<div id="footer">
 			<p>&copy; Untitled. All rights reserved. Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. Photos by <a href="http://fotogrph.com/">Fotogrph</a>.</p>

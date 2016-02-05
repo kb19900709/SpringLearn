@@ -1,6 +1,7 @@
 package com.myBatis.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class MenuDetail {
     private BigDecimal menuDetailIndex;
@@ -14,6 +15,8 @@ public class MenuDetail {
     private String menuDetailDesc;
 
     private String menuFunctiongPage;
+
+    private Date createDate;
 
     public BigDecimal getMenuDetailIndex() {
         return menuDetailIndex;
@@ -61,5 +64,13 @@ public class MenuDetail {
 
     public void setMenuFunctiongPage(String menuFunctiongPage) {
         this.menuFunctiongPage = menuFunctiongPage == null ? null : menuFunctiongPage.trim();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }
