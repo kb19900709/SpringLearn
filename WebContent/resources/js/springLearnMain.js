@@ -1,5 +1,3 @@
-var menuList;
-
 $(document).ready(function(){
 	initMenu();
 });
@@ -12,19 +10,23 @@ function initMenu(){
 		method : 'post',
 		async : false,
 		success : function(response) {
-			menuList = response.menuList;
-			loadMenu();
+			if(response.menuList){
+				loadMenu(response.menuList);
+			}else{
+				alert('loading menu list fail');
+			}
 		}
 	});
 }
 
-function loadMenu(){
+function loadMenu(menuList){
 	var menuDiv = $('#menu');
 	var $ul = $('<ul></ul>');
 	for(var i=0;i<menuList.length;i++){
 		var menu = menuList[i];
 		var $li = $('<li></li>');	
 		var $a = $('<a></a>').prop('href','#')
+							 .prop('waitingPage', menu.menuWaitingPage)
 							 .prop('subMenu', menu.menuDetailList)
 							 .addClass('menuHyperLink');
 		$a.text(menu.menuName);
@@ -33,26 +35,30 @@ function loadMenu(){
 		
 		if(i == 0){
 			$li.addClass('active');
+			contentDispatcher($a.prop('waitingPage'));
 			loadSubMenu(menu.menuDetailList);
 		}
 	}
 	menuDiv.append($ul);
 	
 	$('.menuHyperLink').click(function(){
-		$('#menu').find('li').each(function(){
+		menuDiv.find('li').each(function(){
 			$(this).removeClass('active');
 		});
 		$(this).parent().addClass('active');
 		
-		var $functionTargetUL = $('#functionList');
-		$functionTargetUL.empty();
-		loadSubMenu($functionTargetUL,$(this).prop('subMenu'));
+		contentDispatcher($(this).prop('waitingPage'));
+		
+		var functionTargetUL = $('#functionList');
+		functionTargetUL.empty();
+		loadSubMenu(functionTargetUL,$(this).prop('subMenu'));
 	});
 	
 	function loadSubMenu(target,menuDetailList){
 		if(!menuDetailList){
 			return;
 		}
+		
 		for(var i=0;i<menuDetailList.length;i++){
 			var subMenu = menuDetailList[i];
 			var $li = $('<li></li>');
@@ -65,7 +71,7 @@ function loadMenu(){
 			$p1.text(date);
 			
 			var $p2 = $('<p class="subMenuName"></p>');
-			$p2.prop('menuFunctiongPage',subMenu.menuFunctiongPage);
+			$p2.prop('menuFunctiongPage',subMenu.menuFunctiongPage);	
 			var $h3 = $('<H3></H3>');
 			var $a = $('<a href="#" style="color:red;"></a>');
 			$a.text(subMenu.menuDetailName);
@@ -76,17 +82,16 @@ function loadMenu(){
 			$p3.text(subMenu.menuDetailDesc);
 			
 			$li.append($p1).append($p2).append($p3);
-			
 			target.append($li);
 		}
 		
 		$('.subMenuName').click(function(){
-			dispatcherFun($(this).prop('menuFunctiongPage'));
+			contentDispatcher($(this).prop('menuFunctiongPage'));
 		});
 	}
 }
 
-function dispatcherFun(dispatcherPage){
+function contentDispatcher(dispatcherPage){
 	var data = {};
 	data.pageName = dispatcherPage;
 	$('#content').load(contextPath+'/forward/dispatcher',data);

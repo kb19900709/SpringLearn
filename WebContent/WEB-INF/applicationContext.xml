@@ -30,4 +30,10 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
+	<!-- i18n處理 -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+		p:basename="${kb.project.i18nFileDir}"
+		p:defaultEncoding="${kb.project.defaultEncoding}"	
+	/>
+	
 </beans>
