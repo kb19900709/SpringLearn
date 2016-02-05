@@ -27,22 +27,28 @@ public class SpringLearnMainCtrl {
 	//接著再由DispatcherServlet 派發
 	@RequestMapping(value = "/dispatcher")
 	public String dispatcher(@RequestParam("pageName") String pageName){
-		logger.info("ForwardCtrl.dispatcher >>> pageName :"+pageName+".jsp");
+		logger.info("dispatcher being >>> pageName:"+pageName+".jsp");
 		return pageName;
 	}
 	
 	@RequestMapping(value = "/getMenu")
 	@ResponseBody
-	public Map<String,Object> getMenu() throws Exception{
+	public Map<String,Object> getMenu(){
+		logger.info("getMenu being");
 		Map<String,Object> result = new HashMap<String,Object>();
-		result.put("menuList", menuService.getAllMenu());
+		try {
+			result.put("menuList", menuService.getAllMenu());
+		} catch (Exception e) {
+			logger.info("getMenu error >>> "+ e.getMessage());
+			e.printStackTrace();
+		}
 		return result;
 	}
 
 	//可攜帶額外參數的寫法
 //	@RequestMapping(value = "/dispatcher")
 //	public ModelAndView dispatcher(@RequestParam("pageName") String pageName){
-//		logger.info("ForwardCtrl.dispatcher >>> pageName :"+pageName);
+//		logger.info("dispatcher being >>> pageName:"+pageName+".jsp");
 //		ModelAndView mav = new ModelAndView(pageName);
 //		return mav;
 //	}

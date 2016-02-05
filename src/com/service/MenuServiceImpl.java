@@ -33,15 +33,16 @@ public class MenuServiceImpl implements MenuService{
 
 	@Override
 	public boolean createMenu(Map<String,Object> params) throws Exception{
-		logger.info("createMenu.params >>> "+params);
+		logger.info("createMenu begin >>> params:"+params);
+		
 		String menuName = MapUtils.getString(params, "menuName");
 		if(StringUtils.isEmpty(menuName)){
 			return false;
 		}
+		
+		MenuMain menuMain = new MenuMain();	
 		String menuWaitingPage = MapUtils.getString(params, "menuWaitingPage");
 		Integer menuOrder = MapUtils.getInteger(params, "menuOrder");
-		
-		MenuMain menuMain = new MenuMain();
 		menuMain.setMenuName(menuName);
 		menuMain.setMenuOrder(menuOrder);
 		menuMain.setMenuWaitingPage(menuWaitingPage);
@@ -49,17 +50,18 @@ public class MenuServiceImpl implements MenuService{
 		return true;
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public boolean createMenuDetail(Map<String, Object> params)
 			throws Exception {
-		logger.info("createMenuDetail.params >>> "+params);
-	    BigDecimal menuIndex = new BigDecimal(MapUtils.getString(params, "menuIndex"));
-	    if(menuIndex == null){
+		logger.info("createMenuDetail begin >>> params:"+params);
+		
+		String menuIndexStr = MapUtils.getString(params, "menuIndex");
+		if(StringUtils.isEmpty(menuIndexStr)){
 	    	return false;
 	    }
 
 	    MenuDetail menuDetail = new MenuDetail();
+	    BigDecimal menuIndex = new BigDecimal(menuIndexStr);
 	    String menuDetailName = MapUtils.getString(params, "menuDetailName");
 	    String menuDetailDesc = MapUtils.getString(params, "menuDetailDesc");
 	    String menuFunctiongPage = MapUtils.getString(params, "menuFunctiongPage");
@@ -77,7 +79,7 @@ public class MenuServiceImpl implements MenuService{
 
 	@Override
 	public List<MenuMain> getAllMenu() throws Exception{
-		logger.info("getAllMenu");
+		logger.info("getAllMenu begin");
 		List<MenuMain> menuList = menuMainMapper.selectAll();
 		List<MenuDetail> menuDetailList = null;
 		for(MenuMain menuMain:menuList){
