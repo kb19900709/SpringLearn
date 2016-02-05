@@ -6,7 +6,7 @@ Highlights:
 4. 配置 myBatis
 5. 配置事務管理(TransactionManager)
 6. 配置系統日誌(Log)
-7. Internationalization(i18n 國際化語言)
+7. 配置 Internationalization(i18n 國際化語言)
 
 =============================================================================
 
