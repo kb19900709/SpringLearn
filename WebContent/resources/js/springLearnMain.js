@@ -21,6 +21,8 @@ function initMenu(){
 
 function loadMenu(menuList){
 	var menuDiv = $('#menu');
+	var functionTargetUL = $('#functionList');
+	
 	var $ul = $('<ul></ul>');
 	for(var i=0;i<menuList.length;i++){
 		var menu = menuList[i];
@@ -35,8 +37,8 @@ function loadMenu(menuList){
 		
 		if(i == 0){
 			$li.addClass('active');
-			contentDispatcher($a.prop('waitingPage'));
-			loadSubMenu(menu.menuDetailList);
+			contentDispatcher(menu.menuWaitingPage);
+			loadSubMenu(functionTargetUL,menu.menuDetailList);
 		}
 	}
 	menuDiv.append($ul);
@@ -48,13 +50,11 @@ function loadMenu(menuList){
 		$(this).parent().addClass('active');
 		
 		contentDispatcher($(this).prop('waitingPage'));
-		
-		var functionTargetUL = $('#functionList');
-		functionTargetUL.empty();
 		loadSubMenu(functionTargetUL,$(this).prop('subMenu'));
 	});
 	
 	function loadSubMenu(target,menuDetailList){
+		target.empty();
 		if(!menuDetailList){
 			return;
 		}
