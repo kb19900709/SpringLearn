@@ -7,6 +7,7 @@ Highlights:
 5. 配置事務管理(TransactionManager)
 6. 配置系統日誌(Log)
 7. 配置 Internationalization(i18n 國際化語言)
+8. 配置 Quartz(排程)
 
 =============================================================================
 
@@ -19,11 +20,12 @@ jdk7
 
 Dependency  Reference:
 
+ojdbc6
 spring-core-4.2.4.RELEASE
 spring-context-4.2.4.RELEASE
+spring-context-support-4.2.4.RELEASE
 spring-webmvc-4.2.4.RELEASE
 spring-jdbc-4.2.4.RELEASE
-ojdbc6
 commons-dbcp-1.2.2
 mybatis-3.3.0
 mybatis-spring-1.2.3
@@ -33,6 +35,7 @@ slf4j-log4j12-1.7.14
 commons-collections-3.2.2
 jackson-core-2.6.5
 jackson-databind-2.6.5
+quartz-2.2.1
 jstl-1.2
 jquery-2.2.0.js
 

@@ -9,4 +9,5 @@ public interface MenuService {
 	public boolean createMenu(Map<String,Object> params) throws Exception;
 	public boolean createMenuDetail(Map<String,Object> params) throws Exception;
 	public List<MenuMain> getAllMenu() throws Exception;
+	public void menuJobTest() throws Exception;
 }

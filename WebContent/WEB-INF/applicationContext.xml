@@ -22,6 +22,9 @@
 	<!-- 載入其它已定義的spring相關xml檔案 -->
 	<!-- 深入應用 see >>> http://blog.csdn.net/kkdelta/article/details/5507799 -->
 	<import resource="datasource.xml"/>	
+	
+	<!-- spring 整合 quartz -->
+	<import resource="quartz-context.xml"/>
 
 
 	<!-- 掃描 com 套件下，有被相關標註（Annotation）設定為元件的類別 -->

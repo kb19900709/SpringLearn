@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+	 
+	<!-- set job detail -->
+	<bean id="myCronJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.job.MyCronJob" />
+		<!-- 
+			Specify the job's durability, i.e. whether it should remain stored in the job store 
+			even if no triggers point to it anymore.
+			
+			如果有在SchedulerFactoryBean註冊，此處必設定為true，否則 Initialized Scheduler 會報錯。
+			org.quartz.SchedulerException: Jobs added with no trigger must be durable.	
+		-->
+		<property name="durability" value="true" />
+		
+		<!-- 注入需要的 global variable -->
+		<property name="jobDataMap">
+			<map>
+				<entry key="menuSrv" value-ref="menuServiceImpl" />
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 如果只是執行一個被spring管理的bean其中一個 method，可以參考此寫法
+	<bean id="myCronJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"
+		p:targetObject-ref="menuServiceImpl"
+		p:targetMethod="menuJobTest"
+	/>
+	-->
+	
+	<!-- 
+		registered job in trigger
+		cronExpression see >>> http://www.blogjava.net/javagrass/archive/2011/07/12/354134.html 
+	-->
+	<bean id="myCronJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
+		p:jobDetail-ref="myCronJobDetail"
+		p:cronExpression="0/30 * * * * ?"
+	/>
+
+
+	<!-- 
+		Compatible with Quartz 2.1.4 and higher, as of Spring 4.1.
+		主要工作內容為管理以及驅動各個觸發器 
+	-->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- 
+			工作集合 (非必要選項)
+			see >>> https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/quartz/SchedulerAccessor.html#setJobDetails-org.quartz.JobDetail...-
+		--> 
+		<property name="jobDetails">
+			<list>
+				<ref bean="myCronJobDetail" />
+			</list>
+		</property>
+
+		<!-- 觸發器(計時器)集合 -->
+		<property name="triggers">
+			<list>
+				<ref bean="myCronJobTrigger" />
+			</list>
+		</property>
+	</bean>
+</beans>

@@ -91,4 +91,19 @@ public class MenuServiceImpl implements MenuService{
 		}
 		return menuList;
 	}
+
+	@Override
+	public void menuJobTest() throws Exception {
+		logger.info("forJobTest begin");
+		List<MenuMain> allMenu = getAllMenu();
+		System.out.println("*****");
+		if(CollectionUtils.isEmpty(allMenu)){
+			System.out.println("this is job test by KB");
+		}else{
+			for(MenuMain menu:allMenu){
+				System.out.println("menu name:"+menu.getMenuName());
+			}
+		}
+		System.out.println("*****");
+	}
 }
