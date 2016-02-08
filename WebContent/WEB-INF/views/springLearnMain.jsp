@@ -8,6 +8,7 @@
 <title>KB Spring Learn</title>
 	<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700|Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 	<link href="<c:url value="/resources/css/default.css"/>" rel="stylesheet" type="text/css" media="all" />
+	<!-- script reference -->
 	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';
@@ -39,6 +40,6 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="<c:url value="/resources/js/springLearnMain.js"/>"></script>  
+	<script type="text/javascript" src="<c:url value="/resources/js/system/springLearnMain.js"/>"></script>  
 </body>
 </html>

@@ -37,7 +37,7 @@
 	-->
 	<bean id="myCronJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"
 		p:jobDetail-ref="myCronJobDetail"
-		p:cronExpression="0/30 * * * * ?"
+		p:cronExpression="1 * * * * ?"
 	/>
 
 
