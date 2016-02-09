@@ -7,11 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myBatis.model.MenuDetail;
 import com.service.MenuService;
 
 @Controller
@@ -40,6 +42,21 @@ public class SpringLearnMainCtrl {
 			result.put("menuList", menuService.getAllMenu());
 		} catch (Exception e) {
 			logger.info("getMenu error >>> "+ e.getMessage());
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/addMenuDetail")
+	@ResponseBody
+	public Map<String,Object> addMenuDetail(@RequestBody MenuDetail menuDetail){
+		logger.info("addMenuDetail being");
+		Map<String,Object> result = new HashMap<String,Object>();
+		try {
+			menuService.createMenuDetail(menuDetail);
+			result.put("result", true);
+		} catch (Exception e) {
+			logger.info("addMenuDetail error >>> "+ e.getMessage());
 			e.printStackTrace();
 		}
 		return result;

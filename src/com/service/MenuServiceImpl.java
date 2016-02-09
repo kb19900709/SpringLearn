@@ -32,46 +32,29 @@ public class MenuServiceImpl implements MenuService{
 	private MenuDetailMapper menuDetailMapper;
 
 	@Override
-	public boolean createMenu(Map<String,Object> params) throws Exception{
-		logger.info("createMenu begin >>> params:"+params);
+	public boolean createMenu(MenuMain menuMain) throws Exception{
+		logger.info("createMenu begin");
 		
-		String menuName = MapUtils.getString(params, "menuName");
+		String menuName = menuMain.getMenuName();
 		if(StringUtils.isEmpty(menuName)){
 			return false;
 		}
-		
-		MenuMain menuMain = new MenuMain();	
-		String menuWaitingPage = MapUtils.getString(params, "menuWaitingPage");
-		Integer menuOrder = MapUtils.getInteger(params, "menuOrder");
-		menuMain.setMenuName(menuName);
-		menuMain.setMenuOrder(menuOrder);
-		menuMain.setMenuWaitingPage(menuWaitingPage);
+
 		menuMainMapper.insert(menuMain);
 		return true;
 	}
 
 	@Override
-	public boolean createMenuDetail(Map<String, Object> params)
+	public boolean createMenuDetail(MenuDetail menuDetail)
 			throws Exception {
-		logger.info("createMenuDetail begin >>> params:"+params);
+		logger.info("createMenuDetail begin");
 		
-		String menuIndexStr = MapUtils.getString(params, "menuIndex");
-		if(StringUtils.isEmpty(menuIndexStr)){
+		BigDecimal menuIndex = menuDetail.getMenuIndex();
+		if(menuIndex == null){
 	    	return false;
 	    }
 
-	    MenuDetail menuDetail = new MenuDetail();
-	    BigDecimal menuIndex = new BigDecimal(menuIndexStr);
-	    String menuDetailName = MapUtils.getString(params, "menuDetailName");
-	    String menuDetailDesc = MapUtils.getString(params, "menuDetailDesc");
-	    String menuFunctiongPage = MapUtils.getString(params, "menuFunctiongPage");
-	    Integer menuDetailOrder = MapUtils.getInteger(params, "menuDetailOrder");
-	    menuDetail.setMenuIndex(menuIndex);
-	    menuDetail.setMenuDetailName(menuDetailName);
-	    menuDetail.setMenuDetailDesc(menuDetailDesc);
-	    menuDetail.setMenuFunctiongPage(menuFunctiongPage);
-	    menuDetail.setMenuDetailOrder(menuDetailOrder);
-	    menuDetail.setCreateDate(new Date());
+		menuDetail.setCreateDate(new Date());
 	    menuDetailMapper.insert(menuDetail);
 		return true;
 	}

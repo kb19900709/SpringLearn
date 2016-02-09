@@ -51,5 +51,6 @@
     MENU_FUNCTIONG_PAGE, CREATE_DATE
     from MENU_DETAIL
     where MENU_INDEX = #{menuIndex,jdbcType=DECIMAL}
+    order by MENU_DETAIL_ORDER
   </select>
 </mapper>

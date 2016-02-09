@@ -96,3 +96,29 @@ function contentDispatcher(dispatcherPage){
 	data.pageName = dispatcherPage;
 	$('#content').load(contextPath+'/forward/dispatcher',data);
 }
+
+function addMenuDetail(){
+	var menuDetail = {
+			 menuIndex : 2 //固定
+			 ,menuDetailName : 'angularjs 練習3'
+			 ,menuDetailOrder : 3
+			 ,menuDetailDesc : ''
+			 ,menuFunctiongPage : '/angularjs/angularjsPractice3'	
+	};
+	
+	$.ajax({
+		contentType : 'application/json',
+		dataType : "json",
+		url : contextPath+'/home/addMenuDetail',
+		data : JSON.stringify(menuDetail),
+		method : 'post',
+		async : false,
+		success : function(response) {
+			if(response.result){
+				alert('addMenuDetail success');
+			}else{
+				alert('addMenuDetail fail');
+			}
+		}
+	});
+}
