@@ -97,9 +97,10 @@ function contentDispatcher(dispatcherPage){
 	$('#content').load(contextPath+'/forward/dispatcher',data);
 }
 
+/*
 function addMenuDetail(){
 	var menuDetail = {
-			 menuIndex : 2 //固定
+			 menuIndex : 2
 			 ,menuDetailName : 'angularjs 練習3'
 			 ,menuDetailOrder : 3
 			 ,menuDetailDesc : ''
@@ -122,3 +123,4 @@ function addMenuDetail(){
 		}
 	});
 }
+*/

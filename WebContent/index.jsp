@@ -17,7 +17,7 @@
 		<br><br>
 		<div align="center">
 			<input type="radio" name="type" value="springLearnMain" checked="checked">guest
-			<input type="radio" name="type" value="adminPage" disabled>admin
+			<input type="radio" name="type" value="adminPage">admin
 		</div>
 		<br>
 		<img id="enter" style="cursor: pointer; " src='<c:url value="/resources/images/enter.jpg"/>'>
