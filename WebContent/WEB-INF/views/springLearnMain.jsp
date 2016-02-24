@@ -36,7 +36,7 @@
 	</div>
 	
 	<!-- script reference -->
-	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery-2.2.0.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/common/jquery.min.js"/>"></script>
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';
 	</script>
