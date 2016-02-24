@@ -8,6 +8,7 @@ Highlights:
 6. 配置系統日誌(Log)
 7. 配置 Internationalization(i18n 國際化語言)
 8. 配置 Quartz(排程)
+9. bower 前端library控管
 
 =============================================================================
 
@@ -37,8 +38,9 @@ jackson-core-2.6.5
 jackson-databind-2.6.5
 quartz-2.2.1
 jstl-1.2
-jquery-2.2.0
+jquery-2.2.1
 angularjs-1.5.0
+angular-resource-1.5.0
 
 =============================================================================
 
