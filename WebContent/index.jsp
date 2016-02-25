@@ -16,8 +16,8 @@
 		<img width="60%" height="60%" src='<c:url value="/resources/images/java-spring-tutorials.jpg"/>'>
 		<br><br>
 		<div align="center">
-			<input type="radio" name="type" value="springLearnMain" checked="checked">guest
-			<input type="radio" name="type" value="adminPage">admin
+			<input type="radio" name="type" value="springLearnMain" checked="checked">jQueryBuild
+			<input type="radio" name="type" value="angularLearnMain">angularBuild
 		</div>
 		<br>
 		<img id="enter" style="cursor: pointer; " src='<c:url value="/resources/images/enter.jpg"/>'>
