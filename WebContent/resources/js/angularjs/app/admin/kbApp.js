@@ -1,1 +1,1 @@
-var kbApp = angular.module('kbApp',['ngResource','ngRoute']);
+angular.module('kbApp',['ngResource','ngRoute']);

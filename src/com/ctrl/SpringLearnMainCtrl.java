@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +43,20 @@ public class SpringLearnMainCtrl {
 			result.put("menuList", menuService.getAllMenu());
 		} catch (Exception e) {
 			logger.info("getMenu error >>> "+ e.getMessage());
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@RequestMapping(value = "/menu" ,method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String,Object> getMenuREST(){
+		logger.info("getMenuREST being");
+		Map<String,Object> result = new HashMap<String,Object>();
+		try {
+			result.put("menuList", menuService.getAllMenu());
+		} catch (Exception e) {
+			logger.info("getMenuREST error >>> "+ e.getMessage());
 			e.printStackTrace();
 		}
 		return result;
