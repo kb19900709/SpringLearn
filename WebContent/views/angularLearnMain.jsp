@@ -23,14 +23,16 @@
 						<li ng-repeat="menu in ctrl.menuList track by menu.menuIndex" 
 							ng-class="ctrl.isSelected(menu)" 
 							ng-click="ctrl.clickMenu(menu)">
-							<a href="#"><span ng-bind="menu.menuName"></span></a>
+							<a ng-href="#/{{menu.menuWaitingPage}}"><span ng-bind="menu.menuName"></span></a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div id="page" class="container" style="min-height: 500px;">
-			<div id="content" style="min-height: 400px;max-height: 400px;overflow:auto;"></div>
+			<div id="content" style="min-height: 400px;max-height: 400px;overflow:auto;">
+				<div ng-view></div>
+			</div>
 			<div id="sidebar" style="min-height: 400px;max-height: 400px;overflow:auto;">
 				<h2>Function List</h2>
 				<ul id="functionList" class="style3">
@@ -56,6 +58,7 @@
 	
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';
+		console.info('contextPath='+contextPath);
 	</script>
 	<script type="text/javascript" src="<c:url value="/resources/js/common/angular.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/common/angular-route.min.js"/>"></script>

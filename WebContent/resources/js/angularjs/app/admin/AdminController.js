@@ -1,5 +1,5 @@
 angular.module('kbApp')
-    .controller('AdminCtrl', ['$log','MenuService','filterFilter', function($log,menuSrv,filterFilter) {
+    .controller('AdminCtrl', ['$log','MenuService','filterFilter','$location', function($log,menuSrv,filterFilter,$location) {
     	var self = this;
     	self.menuList = [];
     	self.currentMenu = null;
