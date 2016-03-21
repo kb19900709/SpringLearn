@@ -1,14 +1,15 @@
 Highlights:
 
-1. web.xml 配置 spring、spring mvc
-2. 配置 property loader
-3. 配置連線資訊(JNDI or DBCP)
-4. 配置 myBatis
-5. 配置事務管理(TransactionManager)
-6. 配置系統日誌(Log)
-7. 配置 Internationalization(i18n 國際化語言)
-8. 配置 Quartz(排程)
-9. bower 前端library控管
+1.  web.xml 配置 spring、spring mvc
+2.  配置 property loader
+3.  配置連線資訊(JNDI or DBCP)
+4.  配置 myBatis
+5.  配置事務管理(TransactionManager)
+6.  配置系統日誌(Log)
+7.  配置 Internationalization(i18n 國際化語言)
+8.  配置 Quartz(排程)
+9.  bower 前端library控管
+10. angularjs 1.5 重構網頁
 
 =============================================================================
 
@@ -41,6 +42,7 @@ jstl-1.2
 jquery-2.2.1
 angularjs-1.5.0
 angular-resource-1.5.0
+angular-route-1.5.0
 
 =============================================================================
 
