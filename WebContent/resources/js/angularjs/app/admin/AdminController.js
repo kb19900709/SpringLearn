@@ -1,27 +1,30 @@
 angular.module('kbApp')
-    .controller('AdminCtrl', ['$log','MenuService','filterFilter','$location', function($log,menuSrv,filterFilter,$location) {
+	//注入 $log、MenuService、$location
+    .controller('AdminCtrl', ['$log','MenuService','$location', function($log,menuSrv,$location) {
     	var self = this;
     	self.menuList = [];
     	self.currentMenu = null;
     	
+    	//初始化 menu 清單
     	menuSrv.query(function(response){
-    		self.menuList = processMenuList(response.menuList);
-    		changeCurrentMenu();
+    		self.menuList = initMenuList(response.menuList);
     	},function(error){
     		$log.log(angular.toJson(error));
     	});
     	
+    	//處理當前 menu selected ，選到的給1其餘給0
     	self.clickMenu = function(menuClick){
     		angular.forEach(self.menuList,function(menu){
     			if(!angular.equals(menuClick, menu)){
     				menu.selected = 0;
     			}else{
     				menu.selected = 1;
+    				self.currentMenu = menu;
     			}
     		});
-    		changeCurrentMenu();
     	};
     	
+    	//for ngClass (CSS .active)
     	self.isSelected = function(menu){
     		if(menu.selected == 1){
     			return {
@@ -29,21 +32,9 @@ angular.module('kbApp')
     			};
     		}
     	};
-    	
-    	function changeCurrentMenu(){
-    		//filterFilter... 須注意回傳array
-    		self.currentMenu = filterFilter(self.menuList,getSelectedMenu)[0];
-    	}
-    	
-    	function getSelectedMenu(menu){
-    		if(menu.selected != 1){
-    			return false;
-    		}else{
-    			return true;
-    		}
-    	}
-    	
-    	function processMenuList(menuList){
+
+    	//處理 menuList 並給予每個 menu 物件 selected 屬性
+    	function initMenuList(menuList){
     		var menu;
     		for(var i=0;i<menuList.length;i++){
     			menu = menuList[i];
@@ -51,6 +42,11 @@ angular.module('kbApp')
     				menu.selected = 0;
     			}else{
     				menu.selected = 1;
+    				
+    				//預設為第一筆資料為當前選擇 menu
+    				self.currentMenu = menu;
+    				//路由初始等待畫面 
+    				$location.path(menu.menuWaitingPage);
     			}
     		}
     		return menuList;

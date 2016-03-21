@@ -29,7 +29,7 @@
 
 
 	<!-- 
-		常態性的java web (war)，view的解析配置 
+		常態性的 java web (war)，view的解析配置 
 		p:prefix 前綴
 		p:suffix 後綴
 		只需要回傳指定邏輯名，DispatcherServlet 將會透過解析配置查找正確的view
@@ -41,6 +41,8 @@
           p:suffix=".jsp"
     />
     -->
+    
+    <!-- for angularjs route，由於不能直接訪問 WEB-INF 底下資源固把 views 資料夾抽離 WEB-INF -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		  p:viewClass="org.springframework.web.servlet.view.JstlView"
           p:prefix="/views/"

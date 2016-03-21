@@ -7,8 +7,10 @@ angular.module('kbApp')
 //		};
 //	}]);
 
+	//使用 ngResource and RESTful url template
 	.factory('MenuService',['$resource',function($resource){
 		return $resource(contextPath+'/home/menu/:id',null,{
+			//因應資料型態 isArray 取消預設改為 false
 			query : {
 				method : 'GET'
 				,isArray : false

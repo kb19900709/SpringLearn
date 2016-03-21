@@ -40,7 +40,7 @@
 						<p class="date"><span ng-bind="detail.createDate | date:'yyyy/MM/dd'"></span></p>
 						<p>
 							<H3>
-								<a href="#" style="color:red;"><span ng-bind="detail.menuDetailName"></span></a>
+								<a ng-href="#/{{detail.menuFunctiongPage}}" style="color:red;"><span ng-bind="detail.menuDetailName"></span></a>
 							</H3>
 						</p>
 						<p><span ng-bind="detail.menuDetailDesc"></span></p>
@@ -58,7 +58,6 @@
 	
 	<script type="text/javascript">
 		var contextPath = '${pageContext.request.contextPath}';
-		console.info('contextPath='+contextPath);
 	</script>
 	<script type="text/javascript" src="<c:url value="/resources/js/common/angular.min.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/common/angular-route.min.js"/>"></script>
