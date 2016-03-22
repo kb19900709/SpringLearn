@@ -1,0 +1,14 @@
+<ul id="functionList" class="style3">
+    <li ng-repeat="function in detail.menuDetailList track by function.menuDetailIndex"
+        ng-class="$index==0?'first':''">
+        <p class="date"><span ng-bind="function.createDate | date:'yyyy/MM/dd'"></span></p>
+        <p>
+            <H3>
+				<a ng-href="#/{{function.menuFunctiongPage}}" style="color:red;">
+					<span ng-bind="function.menuDetailName"></span>
+				</a>
+			</H3>
+        </p>
+        <p><span ng-bind="function.menuDetailDesc"></span></p>
+    </li>
+</ul>

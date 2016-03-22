@@ -1,0 +1,9 @@
+<ul>
+	<li ng-repeat="menu in menuList track by menu.menuIndex" 
+		ng-class="takeClass(menu)" 
+		ng-click="takeClick(menu)">
+		<a ng-href="#/{{menu.menuWaitingPage}}">
+			<span ng-bind="menu.menuName"></span>
+		</a>
+	</li>
+</ul>
