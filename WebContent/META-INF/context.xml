@@ -14,7 +14,7 @@
 	<!--maxActive:連接池處於活動狀態的數據庫連接的最大數目，-1 表示無上限-->  
     <Resource 
 		name="jdbc/KBTest" auth="Container" type="javax.sql.DataSource"
-		username="KB" password="xul4m4d93" driverClassName="oracle.jdbc.driver.OracleDriver"
+		username="yourName" password="yourPassword" driverClassName="oracle.jdbc.driver.OracleDriver"
 		url="jdbc:oracle:thin:@localhost:1521:XE"
 		maxIdle="3" maxWait="10000" maxActive="20"/>
 </Context>
